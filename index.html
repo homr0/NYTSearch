@@ -1,4 +1,4 @@
-<!DOCTYPE <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 
 <head>
@@ -38,15 +38,15 @@
                     </div>
                     <div class="form-group">
                         <label for="inputAddress2">Number of Records to Retrieve:</label>
-                        <input type="text" class="form-control" id="inputNumber" placeholder="5" required>
+                        <input type="number" class="form-control" id="inputNumber" placeholder="5" required>
                     </div>
                     <div class="form-group">
                         <label for="inputAddress2">Start Year(Optional):</label>
-                        <input type="text" class="form-control" id="startYear">
+                        <input type="date" class="form-control" id="endYear" placeholder="mm/dd/yyyy">
                     </div>
                     <div class="form-group">
                         <label for="inputAddress2">Number of Records to Retrieve:</label>
-                        <input type="text" class="form-control" id="endYear">
+                        <input type="date" class="form-control" id="endDate" placeholder="mm/dd/yyyy">
                     </div>
 
                     <button type="submit" id="submitBtn" class="btn btn-primary">Search</button>
@@ -61,9 +61,11 @@
         <!--Row 3-->
         <div class="row">
             <div class="col-md-1"></div>
-            <div class="col-md-10" id="articleSpace">
+            <div class="col-md-10">
                 <h2>Top Articles</h2>
+                <div id="articleSpace">
 
+                </div>
             </div>
             <div class="col-md-1"></div>
         </div>
