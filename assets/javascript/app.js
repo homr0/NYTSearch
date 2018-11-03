@@ -6,6 +6,16 @@ $(document).ready(function() {
     var beginDate = "";
     var endDate = "";
 
+    $("#clearBtn").on("click",function(){
+        //Empty Article Space
+        $("#articleSpace").empty();
+    });
+
+    $("#submitBtn").on("click",function(){
+        //Call Magic Function
+        listArticles();
+    });
+
     // Lists the articles for the search term.
     function listArticles() {
         // Updates the query to hold the search term
