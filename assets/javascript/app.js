@@ -2,10 +2,6 @@ $(document).ready(function() {
     // URL for the New York Times article search API
     var queryURL = "https://api.nytimes.com/svc/search/v2/articlesearch.json";
 
-    // Holds the beginning and end dates for the article search
-    var beginDate = "";
-    var endDate = "";
-
     // Lists the articles for the search term.
     function listArticles() {
         // Updates the query to hold the search term
@@ -13,6 +9,14 @@ $(document).ready(function() {
             "api-key": "73f9ec084d96470cba85e2b765e683c6",
             "q": $("#inputSearch").val()
         });
+
+        console.log(queryURL);
+
+        // Get the beginning and end dates for the article list
+        let beginDate = $("#startDate").val();
+        let endDate = $("#endDate").val();
+        console.log(beginDate);
+        console.log(endDate);
 
         // AJAX retrieves the raw data for the search term
         $.ajax({
@@ -24,7 +28,7 @@ $(document).ready(function() {
                 // Dump of all raw data
                 let data = response.docs[i];
                 console.log(data);
-
+                
                 // Headline of article
                 console.log(data.headline);
 
