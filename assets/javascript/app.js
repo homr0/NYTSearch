@@ -22,37 +22,28 @@ $(document).ready(function() {
         $.ajax({
             url: queryURL,
             method: "GET"
-        }).then(function(response) {
+        }).then(function(thingy) {
             // Loops through the number of records retrieved for the search term
             for(let i = 0; i < $("#inputNumber").val(); i++) {
                 // Dump of all raw data
-                let data = response.docs[i];
-                console.log(data);
+                let data = thingy.response.docs[i];
 
                 // Creates the article div
                 var articleDiv = $("<div>");
 
                 // Headline of article
-                console.log(data.headline);
-
                 var headline = $("<h2>");
 
                 // Web URL of article
-                console.log(data.web_url);
-
-                var url = $("<a>").attr("href", data.web_url).text(data.headline);
+                var url = $("<a>").attr("href", data.web_url).text(data.headline.main);
 
                 // Appends the link to 
                 $(headline).append(url);
 
                 // Byline
-                console.log(data.byline);
-
-                var byline = $("<p>").text(data.byline);
+                var byline = $("<p>").text(data.byline.original);
 
                 // Snippet
-                console.log(data.snippet);
-
                 var snippet = $("<p>").text(data.snippet);
 
                 // Appends the headline, byline, and snippet
