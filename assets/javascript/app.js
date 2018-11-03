@@ -2,6 +2,27 @@ $(document).ready(function() {
     // URL for the New York Times article search API
     var queryURL = "https://api.nytimes.com/svc/search/v2/articlesearch.json";
 
+    // Parses the date into YYYYYMMDD
+    function parseDate(date) {
+        // Makes sure that the length is correct
+        let formattedDate = "";
+
+        // Makes sure there are enough characters to format the date correctly to YYYYMMDD
+        if(date.length == 10) {
+            // If there is a "-" or "/", then the date is presumably MM-DD-YYYY, so it must be corrected to YYYYMMDD
+            if((date.charAt(2) == "-") || (date.charAt(2) == "/")) {
+                date = date.slice(-4) + date(0, 2) + date(3, 2);
+                console.log(date);
+            }
+
+            // Removes any "-" and replaces them with "-"
+            formattedDate = date.replace(/-/g, "");
+        }
+
+        // Returns the formatted date or an empty string if incorrect or no date
+        return formattedDate;
+    }
+
     // Lists the articles for the search term.
     function listArticles() {
         // Updates the query to hold the search term
@@ -10,23 +31,41 @@ $(document).ready(function() {
             "q": $("#inputSearch").val()
         });
 
-        console.log(queryURL);
-
         // Get the beginning and end dates for the article list
         let beginDate = $("#startDate").val();
         let endDate = $("#endDate").val();
-        console.log(beginDate);
-        console.log(endDate);
+
+        beginDate = parseDate(beginDate);
+        endDate = parseDate(endDate);
+
+        // Add in starting date
+        if(beginDate !== "") {
+            queryURL += "&begin_date=" + beginDate;
+        }
+
+        // Add in end date
+        if(endDate !== "") {
+            queryURL += "&end_date=" + endDate;
+        }
 
         // AJAX retrieves the raw data for the search term
         $.ajax({
             url: queryURL,
             method: "GET"
-        }).then(function(thingy) {
+        }).then(function(articles) {
+
+            // Gets the number of articles to output
+            let bulletin = articles.response.docs.length;
+            
+            // Shows all articles available unless the number of articles to show is limited (for 10 or less articles)
+            if(bulletin > $("#inputNumber").val()) {
+                bulletin = $("#inputNumber").val();
+            }
+
             // Loops through the number of records retrieved for the search term
-            for(let i = 0; i < $("#inputNumber").val(); i++) {
+            for(let i = 0; i < bulletin; i++) {
                 // Dump of all raw data
-                let data = thingy.response.docs[i];
+                let data = articles.response.docs[i];
 
                 // Creates the article div
                 var articleDiv = $("<div>");
@@ -61,11 +100,9 @@ $(document).ready(function() {
     });
 
     $("#submitBtn").on("click",function(e){
-        console.log(queryURL);
         e.preventDefault();
 
         //Call Magic Function
-        console.log("Calling function...");
         listArticles();
     });
 });
