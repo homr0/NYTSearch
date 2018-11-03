@@ -12,6 +12,8 @@ $(document).ready(function() {
     });
 
     $("#submitBtn").on("click",function(){
+        event.preventDefault();
+
         //Call Magic Function
         listArticles();
     });
