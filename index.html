@@ -1,0 +1,78 @@
+<!DOCTYPE <!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>NYT Search Tool</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/style.css" type="text/css">
+</head>
+
+<body>
+    <div class="container">
+        <!--Row 1-->
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-10">
+                <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+                    <h1 class="navbar-brand">New York Times Search</h1>
+
+                </nav>
+            </div>
+            <div class="col-md-1"></div>
+            <!-- End of Row 1-->
+        </div>
+        <br>
+        <!--Row 2-->
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-10">
+                
+                <form>
+                    <fieldset>
+                    <legend>Search Parameters</legend>
+                    <div class="form-group">
+                        <label for="inputAddress">Search Term:</label>
+                        <input type="text" class="form-control" id="inputSearch" placeholder="Search Articles Here" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputAddress2">Number of Records to Retrieve:</label>
+                        <input type="text" class="form-control" id="inputNumber" placeholder="5" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputAddress2">Start Year(Optional):</label>
+                        <input type="text" class="form-control" id="startYear">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputAddress2">Number of Records to Retrieve:</label>
+                        <input type="text" class="form-control" id="endYear">
+                    </div>
+
+                    <button type="submit" id="submitBtn" class="btn btn-primary">Search</button>
+                    <button type="button" id="clearBtn" class="btn btn-primary">Clear Results</button>
+                    </fieldset>
+                </form>
+            </div>
+            <div class="col-md-1"></div>
+        <!--End of Row 2-->
+        </div>
+
+        <!--Row 3-->
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-10" id="articleSpace">
+                <h2>Top Articles</h2>
+
+            </div>
+            <div class="col-md-1"></div>
+        </div>
+
+        <!-- End Of Container-->
+    </div>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="assets/javascript/app.js"></script>
+</body>
+
+</html>
