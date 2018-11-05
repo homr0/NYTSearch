@@ -17,7 +17,7 @@
             <div class="col-md-1"></div>
             <div class="col-md-10">
                 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-                    <i class="far fa-newspaper fa-5x">New York Times Search</i>
+                    <i class="far fa-newspaper fa-5x" id="newsIcon">New York Times Search</i>
                 </nav>
             </div>
             <div class="col-md-1"></div>
@@ -28,31 +28,35 @@
         <div class="row">
             <div class="col-md-1"></div>
             <div class="col-md-10">
-                
-                <form>
-                    <fieldset>
-                    <legend>Search Parameters</legend>
-                    <div class="form-group">
-                        <label for="inputAddress">Search Term:</label>
-                        <input type="text" class="form-control" id="inputSearch" placeholder="Search Articles Here" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="inputAddress2">Number of Records to Retrieve:</label>
-                        <input type="number" class="form-control" id="inputNumber" placeholder="5" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="inputAddress2">Start Year(Optional):</label>
-                        <input type="date" class="form-control" id="startDate" placeholder="mm/dd/yyyy">
-                    </div>
-                    <div class="form-group">
-                        <label for="inputAddress2">Number of Records to Retrieve:</label>
-                        <input type="date" class="form-control" id="endDate" placeholder="mm/dd/yyyy">
-                    </div>
+              <br>
+              <div class="card">
+                <div class="card-header">
+                  <strong><i class="fas fa-search"></i> Search Parameters</strong>
+                </div>
+                <div class="card-body">
+                  <form>
+                      <div class="form-group">
+                          <label for="inputAddress">Search Term:</label>
+                          <input type="text" class="form-control" id="inputSearch" placeholder="Search Articles Here" required>
+                      </div>
+                      <div class="form-group">
+                          <label for="inputAddress2">Number of Records to Retrieve:</label>
+                          <input type="number" class="form-control" id="inputNumber" placeholder="5" required>
+                      </div>
+                      <div class="form-group">
+                          <label for="inputAddress2">Start Year(Optional):</label>
+                          <input type="date" class="form-control" id="startDate" placeholder="mm/dd/yyyy">
+                        </div>
+                        <div class="form-group">
+                          <label for="inputAddress2">Number of Records to Retrieve:</label>
+                          <input type="date" class="form-control" id="endDate" placeholder="mm/dd/yyyy">
+                        </div>
 
-                    <button type="submit" id="submitBtn" class="btn btn-primary">Search</button>
-                    <button id="clearBtn" class="btn btn-primary">Clear Results</button>
-                    </fieldset>
-                </form>
+                        <button type="submit" id="submitBtn" class="btn btn-primary">Search</button>
+                        <button id="clearBtn" class="btn btn-primary">Clear Results</button>
+                    </form>
+                  </div>
+                </div>
             </div>
             <div class="col-md-1"></div>
         <!--End of Row 2-->
@@ -62,10 +66,15 @@
         <div class="row">
             <div class="col-md-1"></div>
             <div class="col-md-10">
-                <h2>Top Articles</h2>
-                <div id="articleSpace">
+              <br>
+              <div class="card">
+                <div class="card-header">
+                  <strong><i class="fas fa-poll-h"></i> Top Articles</strong>
+                </div>
+                <div class="card-body" id="articleSpace">
 
                 </div>
+              </div>
             </div>
             <div class="col-md-1"></div>
         </div>
